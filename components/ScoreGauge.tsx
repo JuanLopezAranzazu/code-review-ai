@@ -26,8 +26,8 @@ export function ScoreGauge({ score }: ScoreGaugeProps) {
   const color = scoreColor(clamped);
 
   return (
-    <div className="flex items-center gap-4">
-      <div className="relative size-[120px] shrink-0">
+    <div className="flex items-center gap-3 sm:gap-4">
+      <div className="relative size-[72px] shrink-0 sm:size-[120px]">
         <svg viewBox="0 0 120 120" className="size-full -rotate-90">
           <circle
             cx="60"
@@ -47,23 +47,33 @@ export function ScoreGauge({ score }: ScoreGaugeProps) {
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={offset}
-            style={{ transition: "stroke-dashoffset 0.6s ease, stroke 0.3s ease" }}
+            style={{
+              transition: "stroke-dashoffset 0.6s ease, stroke 0.3s ease",
+            }}
           />
         </svg>
+
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="font-mono text-3xl font-semibold tabular-nums" style={{ color }}>
+          <span
+            className="font-mono text-2xl font-semibold tabular-nums sm:text-3xl"
+            style={{ color }}
+          >
             {Math.round(clamped)}
           </span>
-          <span className="text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">
+
+          <span className="text-[9px] uppercase tracking-wide text-[var(--color-text-faint)] sm:text-[10px]">
             / 100
           </span>
         </div>
       </div>
       <div>
-        <p className="text-xs uppercase tracking-wide text-[var(--color-text-faint)]">
+        <p className="text-[10px] uppercase tracking-wide text-[var(--color-text-faint)] sm:text-xs">
           Puntuación general
         </p>
-        <p className="mt-1 text-lg font-medium" style={{ color }}>
+        <p
+          className="mt-0.5 text-base font-medium sm:mt-1 sm:text-lg"
+          style={{ color }}
+        >
           {scoreLabel(clamped)}
         </p>
       </div>

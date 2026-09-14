@@ -32,26 +32,26 @@ export default function Home() {
   return (
     <Tooltip.Provider delayDuration={300}>
       <div className="flex h-screen flex-col bg-[var(--color-bg)]">
-        <header className="flex shrink-0 items-center border-b border-[var(--color-border)] px-5 py-3">
+        <header className="flex shrink-0 items-center border-b border-[var(--color-border)] px-4 py-3 sm:px-5">
           <div className="flex items-center gap-2.5">
-            <div className="flex size-8 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-brand-muted)]">
+            <div className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-brand-muted)]">
               <Code2 className="size-4 text-[var(--color-brand)]" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h1 className="text-sm font-semibold leading-none text-[var(--color-text)]">
                 Code Review AI
               </h1>
-              <p className="mt-1 text-[11px] leading-none text-[var(--color-text-faint)]">
+              <p className="mt-1 hidden text-[11px] leading-none text-[var(--color-text-faint)] sm:block">
                 Revisión de código asistida por IA
               </p>
             </div>
           </div>
         </header>
 
-        <main className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-2">
+        <main className="flex min-h-0 flex-1 flex-col lg:grid lg:grid-cols-2">
           {/* Panel del editor */}
-          <section className="flex min-h-0 flex-col border-b border-[var(--color-border)] lg:border-b-0 lg:border-r">
-            <div className="flex shrink-0 items-center justify-between gap-2 border-b border-[var(--color-border)] px-4 py-2.5">
+          <section className="flex h-[42dvh] min-h-0 flex-col border-b border-[var(--color-border)] lg:h-auto lg:border-b-0 lg:border-r">
+            <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border)] px-3 py-2.5 sm:px-4">
               <LanguageSelect value={language} onChange={setLanguage} />
 
               <div className="flex items-center gap-2">
@@ -59,7 +59,7 @@ export default function Home() {
                   <Tooltip.Trigger asChild>
                     <button
                       onClick={handleClear}
-                      className="flex size-8 items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]"
+                      className="flex size-8 shrink-0 items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-bg-elevated)] hover:text-[var(--color-text)]"
                       aria-label="Limpiar código"
                     >
                       <Trash2 className="size-4" />
@@ -78,14 +78,15 @@ export default function Home() {
                 <button
                   onClick={handleAnalyze}
                   disabled={!code.trim() || isLoading}
-                  className="flex items-center gap-1.5 rounded-[var(--radius-sm)] bg-[var(--color-brand)] px-3.5 py-1.5 text-sm font-medium text-[#1a0f0c] transition-colors hover:bg-[var(--color-brand-hover)] disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex items-center gap-1.5 whitespace-nowrap rounded-[var(--radius-sm)] bg-[var(--color-brand)] px-3 py-1.5 text-sm font-medium text-[#1a0f0c] transition-colors hover:bg-[var(--color-brand-hover)] disabled:cursor-not-allowed disabled:opacity-40 sm:px-3.5"
                 >
                   {isLoading ? (
-                    <Loader2 className="size-4 animate-spin" />
+                    <Loader2 className="size-4 shrink-0 animate-spin" />
                   ) : (
-                    <Sparkles className="size-4" />
+                    <Sparkles className="size-4 shrink-0" />
                   )}
-                  Analizar código
+                  <span className="hidden sm:inline">Analizar código</span>
+                  <span className="sm:hidden">Analizar</span>
                 </button>
               </div>
             </div>
@@ -96,7 +97,7 @@ export default function Home() {
           </section>
 
           {/* Panel de resultados */}
-          <section className="min-h-0 bg-[var(--color-bg)]">
+          <section className="h-[58dvh] min-h-0 bg-[var(--color-bg)] lg:h-auto">
             {isLoading && <LoadingResultsState />}
             {!isLoading && error && <ErrorResultsState message={error} />}
             {!isLoading && !error && !analysis && <EmptyResultsState />}
