@@ -1,6 +1,6 @@
 "use client";
 
-import type { ComplexityAnalysis } from "../types/analysis";
+import type { ComplexityAnalysis } from "@/types/analysis";
 
 const LEVEL_COLOR: Record<ComplexityAnalysis["level"], string> = {
   baja: "var(--color-good)",

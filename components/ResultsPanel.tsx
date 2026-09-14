@@ -2,7 +2,7 @@
 
 import { Tabs } from "radix-ui";
 import { Sparkles } from "lucide-react";
-import type { CodeAnalysis } from "../types/analysis";
+import type { CodeAnalysis } from "@/types/analysis";
 import { ScoreGauge } from "./ScoreGauge";
 import { SuggestionList } from "./SuggestionList";
 import { BestPracticesList } from "./BestPracticesList";

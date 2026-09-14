@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, X } from "lucide-react";
-import type { BestPractice } from "../types/analysis";
+import type { BestPractice } from "@/types/analysis";
 
 export function BestPracticesList({ practices }: { practices: BestPractice[] }) {
   if (practices.length === 0) {

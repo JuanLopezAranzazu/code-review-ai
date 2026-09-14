@@ -2,7 +2,7 @@
 
 import { Select } from "radix-ui";
 import { Check, ChevronDown } from "lucide-react";
-import { LANGUAGES } from "../lib/languages";
+import { LANGUAGES } from "@/lib/languages";
 
 interface LanguageSelectProps {
   value: string;

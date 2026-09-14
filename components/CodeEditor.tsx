@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { EditorView } from "@codemirror/view";
-import { getLanguage } from "../lib/languages";
+import { getLanguage } from "@/lib/languages";
 
 interface CodeEditorProps {
   code: string;

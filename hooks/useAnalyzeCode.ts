@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import type { CodeAnalysis } from "../types/analysis";
+import type { CodeAnalysis } from "@/types/analysis";
 
 interface UseAnalyzeCodeResult {
   analysis: CodeAnalysis | null;

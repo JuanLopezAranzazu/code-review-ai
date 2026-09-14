@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertTriangle, Info, OctagonAlert } from "lucide-react";
-import type { Severity, Suggestion } from "../types/analysis";
+import type { Severity, Suggestion } from "@/types/analysis";
 
 const SEVERITY_CONFIG: Record<
   Severity,
